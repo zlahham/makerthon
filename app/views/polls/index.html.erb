@@ -2,8 +2,15 @@
   <% if @polls.any? %>
       <% @polls.each do |poll| %>
         <h1><%= poll.name %></h1>
-        <button name='Upvote' > Upvote </button>
-        <button name='Downvote' > Downvote </button>
+        <% if current_user.voted_up_on?(poll) %>
+          <p> +1 </p>
+        <% elsif current_user.voted_down_on?(poll) %>
+          <p> -1 </p>
+        <% else %>
+          <p> 0 </p>
+        <%end%>
+        <%= link_to "Downvote", dislike_polls_path(poll), method: :put %>
+        <%= link_to "Upvote", like_polls_path(poll), method: :put %>
       <% end %>
   <% else %>
     <h2>No polls yet</h2>

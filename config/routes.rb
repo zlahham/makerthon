@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 
-  resource :polls
+  resource :polls do
+    member do
+      put "like", to: "polls#upvote"
+      put "dislike", to: "polls#downvote"
+    end
+  end
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: "polls#index"

@@ -36,4 +36,25 @@ describe 'Voting' do
       expect(page).not_to have_content 'Downvote'
     end
   end
+
+  context 'can be done by Downvote and Upvote' do
+
+    before do
+      user = create(:user)
+      sign_in_as(user)
+      poll = create(:poll)
+    end
+
+    it 'downvoting registers vote' do
+      visit '/'
+      click_button 'Downvote'
+      expect(page).to have_content('-1')
+    end
+
+    it 'upvoting registers vote' do
+      visit '/'
+      click_button 'Upvote'
+      expect(page).to have_content('+1')
+    end
+  end
 end
