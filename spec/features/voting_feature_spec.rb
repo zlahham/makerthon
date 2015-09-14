@@ -7,6 +7,7 @@ describe 'Voting' do
     before do
       user = create(:user)
       sign_in_as(user)
+      poll = create(:poll)
     end
 
     it 'can upvote' do
