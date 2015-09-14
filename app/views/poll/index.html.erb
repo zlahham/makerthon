@@ -1,9 +1,0 @@
-<% if current_user %>
-  <% if Poll.any? %>
-    <button name='Upvote' > Upvote </button>
-    <button name='Downvote' > Downvote </button>
-  <% else %>
-    <h2>No polls yet'
-    <%= link_to "Add a poll", new_poll_path %>
-  <% end %>
-<% end  %>
