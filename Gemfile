@@ -13,6 +13,7 @@ gem 'devise'
 gem 'acts_as_votable'
 gem 'pry-rails'
 gem 'pusher'
+gem 'd3-rails'
 
 group :development, :test do
   gem 'byebug'
