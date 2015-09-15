@@ -10,7 +10,12 @@
           <p> 0 </p>
         <%end%>
         <%= link_to "Downvote", dislike_poll_path(poll), method: :put %>
+        <%= poll.get_downvotes.size %>
+        <br>
         <%= link_to "Upvote", like_poll_path(poll), method: :put %>
+        <%= poll.get_upvotes.size %>
+        <br>
+        <%= current_user.votes.size %>
 
 
       <% end %>
