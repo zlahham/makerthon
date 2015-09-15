@@ -54,7 +54,7 @@ describe 'Voting' do
     it 'upvoting registers vote' do
       visit '/'
       click_link 'Upvote'
-      expect(page).to have_content('+1')
+      expect(page).to have_content('1')
     end
   end
 end
