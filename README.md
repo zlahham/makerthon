@@ -37,3 +37,8 @@ Challenges
 
 Team
 ---
+Lewis
+Sarah
+Fadi
+Owen
+Zaid
