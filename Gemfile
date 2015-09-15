@@ -16,6 +16,11 @@ gem 'd3-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 
+group :production do
+  gem 'rails_12factor'
+end
+
+
 group :development, :test do
   gem 'byebug'
 end
