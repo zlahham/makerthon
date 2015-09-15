@@ -40,7 +40,7 @@ class PollsController < ApplicationController
       upvote: @users_upvoting,
       downvote: @users_downvoting,
       total_voters: @signed_in_users
-    })
+    }
   end
 
   def show
