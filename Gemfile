@@ -11,9 +11,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'acts_as_votable'
-gem 'pry-rails'
 gem 'pusher'
 gem 'd3-rails'
+gem 'bootstrap-sass'
+gem 'bootstrap_form'
 
 group :production do
   gem 'rails_12factor'
@@ -27,6 +28,7 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry-rails'
 end
 
 
