@@ -14,6 +14,7 @@ gem 'acts_as_votable'
 gem 'pusher'
 gem 'd3-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'byebug'
