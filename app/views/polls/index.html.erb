@@ -1,7 +1,7 @@
 <% if current_user %>
   <% if @polls.any? %>
       <% @polls.each do |poll| %>
-        <h1><%= poll.name %></h1>
+        <h1><%= link_to  poll.name, poll_path(poll) %></h1>
         <% if current_user.voted_up_on?(poll) %>
           <p> +1 </p>
         <% elsif current_user.voted_down_on?(poll) %>
