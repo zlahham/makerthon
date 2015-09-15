@@ -14,7 +14,7 @@ feature 'user can view live results' do
       fill_in 'Name', with: "Can you code?"
       click_button('Create Poll')
       click_link('Can you code?')
-      expect(page).to have_content('0 votes')
+      expect(page).to have_content('0')
     end
   end
 end
