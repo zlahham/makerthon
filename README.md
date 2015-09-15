@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/zlahham/makerthon.png?label=ready&title=Ready)](https://waffle.io/zlahham/makerthon)
+[![Stories in Ready](https://badge.waffle.io/zlahham/makerthon.png?label=ready&title=Ready)](https://waffle.io/zlahham/makerthon)
 User Stories
 ---
 ```
