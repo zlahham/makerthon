@@ -4,6 +4,9 @@
         <% @polls.each do |poll| %>
           <div class="text-center">
             <h1><%= link_to  poll.name, poll_path(poll) %></h1>
+            <% if current_user.id == poll.user_id%>
+              <h2><%= link_to "delete", poll_path(poll), method: :delete %></h2>
+            <% end %>
             <h2>Your vote status: <%= current_user.vote_total %></h2>
           <div class="row" id="voting-buttons">
             <% if current_user.vote_total < 1 && current_user.vote_total > -2 %>
