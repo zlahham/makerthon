@@ -32,7 +32,7 @@ class PollsController < ApplicationController
   end
 
   def pusher_send
-    @signed_in_users = User.where(updated_at: Time.now-300..Time.now)
+    @signed_in_users = User.where(updated_at: Time.now-300..Time.now).sum(:vote_total)
     @users_upvoting = User.where(vote_total: 1).where(updated_at: Time.now-300..Time.now).sum(:vote_total)
     @users_downvoting = User.where(vote_total: -1).where(updated_at: Time.now-300..Time.now).sum(:vote_total)
     pusher = Pusher::Client.new app_id: Pusher.app_id, key: Pusher.key, secret: Pusher.secret
