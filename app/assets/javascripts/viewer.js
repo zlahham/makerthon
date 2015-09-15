@@ -35,8 +35,8 @@
     // alert(data.upvote);
     var up = document.getElementById("upvote");
     var down = document.getElementById("downvote");
-    up.innerHTML = data.upvote;
-    down.innerHTML = data.downvote;
+    // up.innerHTML = data.upvote;
+    // down.innerHTML = data.downvote;
 
     var upCount = data.upvote;
     var downCount = data.downvote;
@@ -44,9 +44,6 @@
 
 
     chartCreate(upCount, downCount, neutralCount);
-
-
-
 });
 
 
@@ -58,6 +55,7 @@ function chartCreate(upCount, downCount, neutralCount) {
 
 
       var dataset = [ upCount, downCount, neutralCount];
+      var totalVoters = upCount + downCount + neutralCount;
 
       var outerRadius = w / 2;
       var innerRadius = w / 3;
@@ -68,11 +66,12 @@ function chartCreate(upCount, downCount, neutralCount) {
       var pie = d3.layout.pie();
 
       //Easy colors accessible via a 10-step ordinal scale
-      var color = d3.scale.category10();
+      // var color = d3.scale.category10();
+      var color = d3.scale.ordinal().range(['green','red','yellow']);
 
       //Create SVG element
 
-      var svg = d3.select("body")
+      var svg = d3.select("div#chart")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
@@ -100,7 +99,7 @@ function chartCreate(upCount, downCount, neutralCount) {
           .attr("text-anchor", "middle")
           .text(function(d) {
             return d.value;
+            // return totalVoters;
           });
 
-};
-
+}
