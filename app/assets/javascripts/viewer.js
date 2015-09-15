@@ -40,24 +40,24 @@
 
     var upCount = data.upvote;
     var downCount = data.downvote;
-    var totalVotersCount = data.total_voters;
+    var neutralCount = data.neutral;
 
 
-    chartCreate(upCount, downCount);
+    chartCreate(upCount, downCount, neutralCount);
 
 
 
 });
 
 
-function chartCreate(upCount, downCount, totalVotersCount) {
+function chartCreate(upCount, downCount, neutralCount) {
       d3.select("svg").remove();
       //Width and height
       var w = 300;
       var h = 300;
 
 
-      var dataset = [ upCount, downCount];
+      var dataset = [ upCount, downCount, neutralCount];
 
       var outerRadius = w / 2;
       var innerRadius = w / 3;
