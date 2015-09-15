@@ -2,6 +2,9 @@
   <% if @polls.any? %>
       <% @polls.each do |poll| %>
         <h1><%= link_to  poll.name, poll_path(poll) %></h1>
+        <% if current_user.id == poll.user_id%>
+          <h2><%= link_to "delete", poll_path(poll), method: :delete %></h2>
+        <% end %>
           <p>
             <%= current_user.vote_total %>
           </p>
