@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+  root to: "polls#index"
 
-  resource :polls do
+  resources :polls do
     member do
       put "like", to: "polls#upvote"
       put "dislike", to: "polls#downvote"
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root to: "polls#index"
 
 
   # Example of regular route:

@@ -9,11 +9,13 @@
         <% else %>
           <p> 0 </p>
         <%end%>
-        <%= link_to "Downvote", dislike_polls_path(poll), method: :put %>
-        <%= link_to "Upvote", like_polls_path(poll), method: :put %>
+        <%= link_to "Downvote", dislike_poll_path(poll), method: :put %>
+        <%= link_to "Upvote", like_poll_path(poll), method: :put %>
+
+
       <% end %>
   <% else %>
     <h2>No polls yet</h2>
-    <%= link_to "Add a poll", new_polls_path %>
+    <%= link_to "Add a poll", new_poll_path %>
   <% end %>
 <% end  %>

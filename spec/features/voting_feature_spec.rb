@@ -47,13 +47,13 @@ describe 'Voting' do
 
     it 'downvoting registers vote' do
       visit '/'
-      click_button 'Downvote'
+      click_link 'Downvote'
       expect(page).to have_content('-1')
     end
 
     it 'upvoting registers vote' do
       visit '/'
-      click_button 'Upvote'
+      click_link 'Upvote'
       expect(page).to have_content('+1')
     end
   end
