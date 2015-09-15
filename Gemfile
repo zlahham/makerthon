@@ -15,6 +15,11 @@ gem 'pry-rails'
 gem 'pusher'
 gem 'd3-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
+
 group :development, :test do
   gem 'byebug'
 end
