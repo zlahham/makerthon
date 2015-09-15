@@ -21,6 +21,7 @@
 
 // dev key for pusher
 // da575b9edde9ebf3a600
+// production 9a2f3193a0af5c40e9c0
 
 
   Pusher.log = function(message) {
@@ -29,7 +30,7 @@
     }
   };
 
-  var pusher = new Pusher('9a2f3193a0af5c40e9c0', {
+  var pusher = new Pusher('da575b9edde9ebf3a600', {
     encrypted: true
   });
 

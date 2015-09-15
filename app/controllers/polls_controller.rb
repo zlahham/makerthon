@@ -47,6 +47,12 @@ class PollsController < ApplicationController
     @poll = Poll.find(params[:id])
   end
 
+  def destroy
+    @poll = Poll.find(params[:id])
+    @poll.destroy
+    User.update_all(vote_total: 0)
+    redirect_to polls_path
+  end
 
   private
 
