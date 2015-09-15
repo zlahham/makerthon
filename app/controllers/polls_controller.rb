@@ -1,3 +1,4 @@
+require 'pusher'
 class PollsController < ApplicationController
 
   def index
@@ -17,14 +18,24 @@ class PollsController < ApplicationController
   def upvote
     @poll = Poll.find(params[:id])
     @poll.upvote_by current_user
+    pusher_send
     redirect_to :back
   end
 
   def downvote
     @poll = Poll.find(params[:id])
     @poll.downvote_by current_user
+    pusher_send
     redirect_to :back
   end
+
+  def pusher_send
+    pusher = Pusher::Client.new app_id: Pusher.app_id, key: Pusher.key, secret: Pusher.secret
+    pusher.trigger('my_channel', 'my_event', {
+      message: 'hello world'
+    })
+  end
+
 
   private
 
