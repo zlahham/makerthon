@@ -33,9 +33,14 @@ class PollsController < ApplicationController
 
   def pusher_send
     pusher = Pusher::Client.new app_id: Pusher.app_id, key: Pusher.key, secret: Pusher.secret
-    pusher.trigger('my_channel', 'my_event', {
-      message: 'hello world'
+    pusher.trigger('voting', 'my_event', {
+      upvote: '10',
+      downvote: '5'
     })
+  end
+
+  def show
+    @poll = Poll.find(params[:id])
   end
 
 

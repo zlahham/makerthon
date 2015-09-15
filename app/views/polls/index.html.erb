@@ -1,7 +1,7 @@
 <% if current_user %>
   <% if @polls.any? %>
       <% @polls.each do |poll| %>
-        <h1><%= poll.name %></h1>
+        <h1><%= link_to  poll.name, poll_path(poll) %></h1>
           <p>
             <%= current_user.vote_total %>
           </p>
@@ -10,7 +10,7 @@
         <% end %>
         <% if current_user.vote_total > -1 && current_user.vote_total < 2 %>
           <%= link_to "Downvote", dislike_poll_path(poll), method: :put %>
-        <% end %>  
+        <% end %>
       <% end %>
   <% else %>
     <h2>No polls yet</h2>
