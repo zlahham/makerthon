@@ -18,17 +18,23 @@ class PollsController < ApplicationController
 
   def upvote
     @poll = Poll.find(params[:id])
-     @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
-    @vote.update(value: @vote.value + 1)
-    pusher_send(@poll)
+    @myvote = Vote.where(user_id: current_user.id)[0]
+    if !@myvote || @myvote.value <= 0
+      @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+      @vote.update(value: @vote.value + 1)
+      pusher_send(@poll)
+    end
     redirect_to :back
   end
 
   def downvote
     @poll = Poll.find(params[:id])
-    @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
-    @vote.update(value: @vote.value - 1)
-    pusher_send(@poll)
+    @myvote = Vote.where(user_id: current_user.id)[0]
+    if !@myvote || @myvote.value >= 0
+      @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+      @vote.update(value: @vote.value - 1)
+      pusher_send(@poll)
+    end
     redirect_to :back
   end
 
