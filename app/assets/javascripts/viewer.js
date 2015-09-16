@@ -18,6 +18,7 @@
     // alert(data.upvote);
     var up = document.getElementById("upvote");
     var down = document.getElementById("downvote");
+    var total = document.getElementById("totalCount");
     // up.innerHTML = data.upvote;
     // down.innerHTML = data.downvote;
 
@@ -25,7 +26,7 @@
     var downCount = data.downvote;
     var neutralCount = data.neutral;
 
-
+    total.innerHTML= upCount + downCount + neutralCount;
     chartCreate(upCount, downCount, neutralCount);
 });
 
