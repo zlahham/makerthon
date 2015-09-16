@@ -41,8 +41,8 @@ class PollsController < ApplicationController
     @users_downvoting = User.where(vote_total: -1).where(updated_at: Time.now-300..Time.now).count
     pusher = Pusher::Client.new app_id: Pusher.app_id, key: Pusher.key, secret: Pusher.secret
     pusher.trigger('voting', 'my_event', {
-      upvote: @users_upvoting,
-      downvote: @users_downvoting,
+      upvote: @users_upvoting ,
+      downvote: @users_downvoting ,
       neutral: @signed_in_users - (@users_downvoting + @users_upvoting)
     })
   end
