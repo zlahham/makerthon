@@ -10,12 +10,12 @@
               <% end %>
             </div>
             <div class="poll-buttons">
-              <h2>Your vote status: <%= current_user.vote_total %></h2>
-              <% if current_user.vote_total < 1 && current_user.vote_total > -2 %>
-                <%= button_to("Upvote", like_poll_path(poll), class: "voting-buttons btn btn-success btn-lg", method: :put) %>
+              <h2>Your vote status: <%= @user_vote %></h2>
+              <% if @user_vote < 1 && @user_vote > -2 %>
+                <%= button_to("Upvote", upvote_poll_path(poll), class: "voting-buttons btn btn-success btn-lg", method: :put) %>
               <% end %>
-              <% if current_user.vote_total > -1 && current_user.vote_total < 2 %>
-                <%= button_to("Downvote", dislike_poll_path(poll), class: "voting-buttons btn btn-danger btn-lg", method: :put) %>
+              <% if @user_vote > -1 && @user_vote < 2 %>
+                <%= button_to("Downvote", downvote_poll_path(poll), class: "voting-buttons btn btn-danger btn-lg", method: :put) %>
               <% end %>
             </div>
         <% end %>
