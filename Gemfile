@@ -15,6 +15,7 @@ gem 'pusher'
 gem 'd3-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'simple_form'
 
 group :production do
   gem 'rails_12factor'

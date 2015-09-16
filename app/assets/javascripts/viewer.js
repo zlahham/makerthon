@@ -71,7 +71,7 @@ function chartCreate(upCount, downCount, neutralCount) {
 
       //Easy colors accessible via a 10-step ordinal scale
       // var color = d3.scale.category10();
-      var color = d3.scale.ordinal().range(['green','red','yellow']);
+      var color = d3.scale.ordinal().range(['#7ED321','#FF001F','#F8E71C']);
 
       //Create SVG element
 

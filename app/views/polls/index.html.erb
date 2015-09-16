@@ -23,6 +23,12 @@
       <%= link_to "Add a poll", new_poll_path %>
     <% end %>
           </div>
+  <% else  %>
+    <div class="row">
+      <div class="welcome col-lg-4 col-lg-offset-4">
+        <%= image_tag "logo.png", class: "logo_image" %>
+      </div>
+    </div>
   <% end  %>
 
 </div>
