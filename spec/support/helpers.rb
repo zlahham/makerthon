@@ -16,4 +16,12 @@ module FeatureHelpers
     fill_in :user_password, with: user.password
     click_button 'Log in'
   end
+
+    def create_poll(poll_name)
+      visit '/'
+      click_link 'Add a poll'
+      fill_in 'Name', with: poll_name
+      click_button('Create Poll')
+    end
+
 end
