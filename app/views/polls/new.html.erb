@@ -1,5 +1,7 @@
-<%= form_for @poll do | f | %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class="new-poll col-lg-4 col-lg-offset-4">
+  <%= bootstrap_form_for @poll do | f | %>
+    <%= f.text_field :name, icon: "glyphicon glyphicon-resize-full" %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
