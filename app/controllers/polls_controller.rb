@@ -16,18 +16,22 @@ class PollsController < ApplicationController
   end
 
   def upvote
-    @poll = Poll.find(params[:id])
-    @poll.upvote_by current_user
-    current_user.update(vote_total: current_user.vote_total + 1)
-    pusher_send
+    unless current_user.vote_total >= 1
+      @poll = Poll.find(params[:id])
+      @poll.upvote_by current_user
+      current_user.update(vote_total: current_user.vote_total + 1)
+      pusher_send
+    end
     redirect_to :back
   end
 
   def downvote
-    @poll = Poll.find(params[:id])
-    @poll.downvote_by current_user
-    current_user.update(vote_total: current_user.vote_total - 1)
-    pusher_send
+    unless current_user.vote_total <= -1
+      @poll = Poll.find(params[:id])
+      @poll.downvote_by current_user
+      current_user.update(vote_total: current_user.vote_total - 1)
+      pusher_send
+    end
     redirect_to :back
   end
 
