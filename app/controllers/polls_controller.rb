@@ -18,18 +18,16 @@ class PollsController < ApplicationController
 
   def upvote
     @poll = Poll.find(params[:id])
-    @poll.create_vote({value: 1}, current_user)
+     @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+    @vote.update(value: @vote.value + 1)
     pusher_send(@poll)
     redirect_to :back
   end
 
   def downvote
     @poll = Poll.find(params[:id])
-    if vote_total(current_user) >= 1
-
-
-
-    @poll.create_vote({value: -1}, current_user)
+    @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+    @vote.update(value: @vote.value - 1)
     pusher_send(@poll)
     redirect_to :back
   end
