@@ -22,6 +22,13 @@
  @import "bootstrap";
 
 
+body {
+  background-color: #fafafa;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+}
+
 .welcome {
   h3 {
     text-align: center;
@@ -49,6 +56,51 @@ a.navbar-brand {
   }
 }
 
-#voting-buttons {
+.navbar-default {
+  background-color: #fff;
+  height: 54px;
+  .navbar-nav li a {
+    color: #125688;
+  }
+}
+
+.button_to {
   display: inline;
+}
+
+h4 {
+  a {
+    color: #ff0000;
+  }
+
+}
+
+.poll-name {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.poll-buttons {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+.center-block {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  fill: white;
+}
+
+.legend {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #fff;
 }

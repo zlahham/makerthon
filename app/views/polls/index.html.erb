@@ -3,19 +3,21 @@
     <% if @polls.any? %>
         <% @polls.each do |poll| %>
           <div class="text-center">
-            <h1><%= link_to  poll.name, poll_path(poll) %></h1>
-            <% if current_user.id == poll.user_id%>
-              <h2><%= link_to "delete", poll_path(poll), method: :delete %></h2>
-            <% end %>
-            <h2>Your vote status: <%= current_user.vote_total %></h2>
-          <div class="row" id="voting-buttons">
-            <% if current_user.vote_total < 1 && current_user.vote_total > -2 %>
-              <%= button_to("Upvote", like_poll_path(poll), class: "btn btn-success btn-lg", method: :put) %>
-            <% end %>
-            <% if current_user.vote_total > -1 && current_user.vote_total < 2 %>
-              <%= button_to("Downvote", dislike_poll_path(poll), class: "btn btn-danger btn-lg", method: :put) %>
-            <% end %>
-          </div>
+            <div class="poll-name">
+              <h1>Current Poll: <%= link_to  poll.name, poll_path(poll) %></h1>
+              <% if current_user.id == poll.user_id%>
+                <h4><%= link_to "delete poll", poll_path(poll), method: :delete %></h4>
+              <% end %>
+            </div>
+            <div class="poll-buttons">
+              <h2>Your vote status: <%= current_user.vote_total %></h2>
+              <% if current_user.vote_total < 1 && current_user.vote_total > -2 %>
+                <%= button_to("Upvote", like_poll_path(poll), class: "voting-buttons btn btn-success btn-lg", method: :put) %>
+              <% end %>
+              <% if current_user.vote_total > -1 && current_user.vote_total < 2 %>
+                <%= button_to("Downvote", dislike_poll_path(poll), class: "voting-buttons btn btn-danger btn-lg", method: :put) %>
+              <% end %>
+            </div>
         <% end %>
 
     <% else %>
@@ -23,7 +25,7 @@
       <%= link_to "Add a poll", new_poll_path %>
     <% end %>
           </div>
-  <% else  %>
+  <% else %>
     <div class="row">
       <div class="welcome col-lg-4 col-lg-offset-4">
         <%= image_tag "logo.png", class: "logo_image" %>
