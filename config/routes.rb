@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :polls do
     member do
-      put "like", to: "polls#upvote"
-      put "dislike", to: "polls#downvote"
+      put "upvote", to: "polls#upvote"
+      put "downvote", to: "polls#downvote"
     end
   end
 

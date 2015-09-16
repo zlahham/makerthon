@@ -3,6 +3,7 @@ class PollsController < ApplicationController
 
   def index
     @polls = Poll.all
+    @user_vote = vote_total(current_user) if current_user
   end
 
   def new
@@ -17,24 +18,30 @@ class PollsController < ApplicationController
 
   def upvote
     @poll = Poll.find(params[:id])
-    @poll.upvote_by current_user
-    current_user.update(vote_total: current_user.vote_total + 1)
-    pusher_send
+    @myvote = Vote.where(user_id: current_user.id)[0]
+    if !@myvote || @myvote.value <= 0
+      @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+      @vote.update(value: @vote.value + 1)
+      pusher_send(@poll)
+    end
     redirect_to :back
   end
 
   def downvote
     @poll = Poll.find(params[:id])
-    @poll.downvote_by current_user
-    current_user.update(vote_total: current_user.vote_total - 1)
-    pusher_send
+    @myvote = Vote.where(user_id: current_user.id)[0]
+    if !@myvote || @myvote.value >= 0
+      @vote = Vote.where(poll_id: @poll.id).where(user_id: current_user.id).find_or_create_by(user_id: current_user.id, poll_id: @poll.id)
+      @vote.update(value: @vote.value - 1)
+      pusher_send(@poll)
+    end
     redirect_to :back
   end
 
-  def pusher_send
+  def pusher_send poll
     @signed_in_users = User.where(updated_at: Time.now-300..Time.now).count
-    @users_upvoting = User.where(vote_total: 1).where(updated_at: Time.now-300..Time.now).count
-    @users_downvoting = User.where(vote_total: -1).where(updated_at: Time.now-300..Time.now).count
+    @users_upvoting = Vote.where(poll_id: poll.id).where(value: 1).where(updated_at: Time.now-300..Time.now).count
+    @users_downvoting = Vote.where(poll_id: poll.id).where(value: -1).where(updated_at: Time.now-300..Time.now).count
     pusher = Pusher::Client.new app_id: Pusher.app_id, key: Pusher.key, secret: Pusher.secret
     pusher.trigger('voting', 'my_event', {
       upvote: @users_upvoting,
@@ -50,7 +57,6 @@ class PollsController < ApplicationController
   def destroy
     @poll = Poll.find(params[:id])
     @poll.destroy
-    User.update_all(vote_total: 0)
     redirect_to polls_path
   end
 
@@ -59,5 +65,10 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:name)
   end
+
+  def vote_total user
+    Vote.where(user_id: user.id).sum(:value)
+  end
+
 
 end

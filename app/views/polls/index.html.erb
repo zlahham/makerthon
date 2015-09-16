@@ -7,17 +7,16 @@
             <% if current_user.id == poll.user_id%>
               <h2><%= link_to "delete", poll_path(poll), method: :delete %></h2>
             <% end %>
-            <h2>Your vote status: <%= current_user.vote_total %></h2>
+            <h2>Your vote status: <%= @user_vote %></h2>
           <div class="row" id="voting-buttons">
-            <% if current_user.vote_total < 1 && current_user.vote_total > -2 %>
-              <%= button_to("Upvote", like_poll_path(poll), class: "btn btn-success btn-lg", method: :put) %>
+            <% if @user_vote < 1 && @user_vote > -2 %>
+              <%= button_to("Upvote", upvote_poll_path(poll), class: "btn btn-success btn-lg", method: :put) %>
             <% end %>
-            <% if current_user.vote_total > -1 && current_user.vote_total < 2 %>
-              <%= button_to("Downvote", dislike_poll_path(poll), class: "btn btn-danger btn-lg", method: :put) %>
+            <% if @user_vote > -1 && @user_vote < 2 %>
+              <%= button_to("Downvote", downvote_poll_path(poll), class: "btn btn-danger btn-lg", method: :put) %>
             <% end %>
           </div>
         <% end %>
-
     <% else %>
       <h2>No polls yet</h2>
       <%= link_to "Add a poll", new_poll_path %>
