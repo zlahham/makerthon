@@ -1,0 +1,106 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require rails_bootstrap_forms
+
+ */
+
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+body {
+  background-color: #fafafa;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+}
+
+.welcome {
+  h3 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .logo_image {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+}
+
+
+a.navbar-brand {
+  .brand_image {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.navbar-default {
+  background-color: #fff;
+  height: 54px;
+  .navbar-nav li a {
+    color: #125688;
+  }
+}
+
+.button_to {
+  display: inline;
+}
+
+h4 {
+  a {
+    color: #ff0000;
+  }
+
+}
+
+.poll-name {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  background-color: #fff;
+}
+
+.poll-buttons {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+.center-block {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  fill: white;
+}
+
+.legend {
+  border: 2px solid;
+  border-color: #eeefef;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #fff;
+}
