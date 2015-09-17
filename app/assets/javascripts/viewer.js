@@ -25,7 +25,6 @@
     chartCreate(upCount, downCount, neutralCount);
 });
 
-
 function chartCreate(upCount, downCount, neutralCount) {
       d3.select("svg").remove();
 
