@@ -23,7 +23,7 @@ end
 
 
 group :development, :test do
-  gem 'byebug'
+
 end
 
 group :development do

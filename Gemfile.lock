@@ -49,7 +49,6 @@ GEM
       sass (>= 3.3.0)
     bootstrap_form (2.3.0)
     builder (3.2.2)
-    byebug (6.0.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -226,7 +225,6 @@ DEPENDENCIES
   acts_as_votable
   bootstrap-sass
   bootstrap_form
-  byebug
   capybara
   coffee-rails (~> 4.1.0)
   d3-rails
@@ -248,3 +246,6 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.10.6
