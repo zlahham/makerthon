@@ -2,11 +2,13 @@
 
 #Makers Academy Makerthon Project
 ---
-##Pllr - Your Real-time Engagement Tool
 Makerthon is a two day event taking place in week 9 of the course.
 It resembles a hackathon, but has one exception - all code is properly tested
 and well crafted. The event kicked off with project pitches, voting, and
-team selection. Our project is Pllr, /ˈpəʊlə/, a real time voting system that
+team selection.
+
+##Pllr - Your Real-time Engagement Tool
+Our project is Pllr, /ˈpəʊlə/, a real time voting system that
 records up votes and down votes, and draws a graph based on the results.
 
 ***See it live here: http://pllr.herokuapp.com***
