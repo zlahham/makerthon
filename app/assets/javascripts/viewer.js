@@ -2,7 +2,6 @@
 // development da575b9edde9ebf3a600
 // production 9a2f3193a0af5c40e9c0
 
-
   Pusher.log = function(message) {
     if (window.console && window.console.log) {
       window.console.log(message);
