@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/zlahham/makerthon.png?label=ready&title=Ready)](https://waffle.io/zlahham/makerthon)[![Build Status](https://travis-ci.org/ojlamb/makerthon.svg?branch=master)](https://travis-ci.org/ojlamb/makerthon)
+[![Stories in Ready](https://badge.waffle.io/zlahham/makerthon.png?label=ready&title=Ready)](https://waffle.io/zlahham/makerthon)  [![Build Status](https://travis-ci.org/ojlamb/makerthon.svg?branch=master)](https://travis-ci.org/ojlamb/makerthon)
 
 #Makers Academy Makerthon Project
 ---
